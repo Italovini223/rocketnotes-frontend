@@ -1,7 +1,10 @@
-import "./styles.css";
+import { Container } from "./styles";
+
 
 export function Details(){
   return(
-    <h1>Hello Word !</h1>
+    <Container>
+      <h1>Hello world!</h1>
+    </Container>
   )
 }
