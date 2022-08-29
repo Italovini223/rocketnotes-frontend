@@ -5,7 +5,8 @@ export function Details(){
   return(
     <Container>
       <h1>Hello word!</h1>
-      <Button  />
+      <Button title="login" login/>
+      <Button title="cadastre-se" />
     </Container>
   )
 }

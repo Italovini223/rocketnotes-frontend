@@ -1,9 +1,12 @@
 import { Container } from "./styles";
 
-export function Button(){
+export function Button({title, login=false}){
   return(
-    <Container typeof="button">
-      clique
+    <Container 
+      typeof="button"
+      disabled={login}
+    >
+      {login ? "Loading..." : title}
     </Container>
   )
 }
