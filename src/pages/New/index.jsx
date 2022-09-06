@@ -3,6 +3,8 @@ import { Container, Form } from "./styles";
 import {Header} from "../../components/Header"
 import { Input } from "../../components/Input";
 import { TextArea } from "../../components/TextArea";
+import { Section } from "../../components/Section";
+import { NoteItem } from "../../components/NoteItem";
 
 export function New(){
   return(
@@ -23,6 +25,18 @@ export function New(){
             type="text"
           />
           <TextArea placeholder="Observações"/>
+
+          <Section
+            title="Links Uteis"
+          >
+            <NoteItem 
+              value="https://rocketseat.com"
+            />
+            <NoteItem 
+            isNew
+            placeholder='Novo Link'
+            />
+          </Section>
         </Form>
       </main>
     </Container>
