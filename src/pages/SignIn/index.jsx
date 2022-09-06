@@ -27,7 +27,7 @@ export function SignIn(){
       />
 
       <Button title="Entrar"/>
-      <a href="#">Criar conta</a>
+      <a href="/register">Criar conta</a>
     </Form>
     <Background />
   </Container>
