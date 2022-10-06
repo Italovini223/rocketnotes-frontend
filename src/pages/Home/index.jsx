@@ -39,7 +39,26 @@ export function Home(){
               {id: "1", title: "React"}
             ]
           }} />  
+                  <Note data={{
+            title: "React Modal" ,
+            tags: [
+              {id: "1", title: "React"}
+            ]
+          }} /> 
+                  <Note data={{
+            title: "React Modal" ,
+            tags: [
+              {id: "1", title: "React"}
+            ]
+          }} /> 
+                  <Note data={{
+            title: "React Modal" ,
+            tags: [
+              {id: "1", title: "React"}
+            ]
+          }} /> 
         </Section>
+        
       </Content>
 
       <NewNote to="new">
