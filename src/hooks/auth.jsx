@@ -29,6 +29,7 @@ function AuthProvider({children}){
       
     }
   }
+  
 
   useEffect(() => {
     const token = localStorage.getItem("@rocketnotes:token");
