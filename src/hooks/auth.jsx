@@ -29,6 +29,13 @@ function AuthProvider({children}){
       
     }
   }
+
+  function singOut() {
+    localStorage.removeItem('@rocketnotes:user');
+    localStorage.removeItem('@rocketnotes:token');
+
+    setData({});
+  }
   
 
   useEffect(() => {
@@ -46,7 +53,7 @@ function AuthProvider({children}){
   }, [])
 
   return(
-    <AuthContext.Provider value={{singIn, user: data.user}}>
+    <AuthContext.Provider value={{singIn, user: data.user, singOut}}>
       {children}
     </AuthContext.Provider>
   )
