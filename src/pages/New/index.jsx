@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Container, Form } from "./styles";
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
 
 import {Header} from "../../components/Header"
@@ -10,6 +10,7 @@ import { TextArea } from "../../components/TextArea";
 import { Section } from "../../components/Section";
 import { NoteItem } from "../../components/NoteItem";
 import { Button } from "../../components/Button";
+import {ButtonText } from "../../components/ButtonText"
 
 export function New(){
   const [title, setTitle] = useState("");
@@ -21,6 +22,12 @@ export function New(){
   const [tags, setTags] = useState([]);
   const[newTag, setNewTag] = useState("");
 
+  const navigate = useNavigate();
+
+  function handleBack() {
+    navigate(-1);
+  }
+  
   function handleAddLink(){
     setLinks(prevState => [...prevState, newLink])
     setNewLink("");
@@ -39,7 +46,6 @@ export function New(){
     setTags(prevState => prevState.filter(tag => tag !== deleted));
   }
 
-  const navigate = useNavigate();
 
   async function handleNewNote() {
     if(!title){
@@ -52,6 +58,14 @@ export function New(){
       return alert('Você deixou uma tag no campo para adicionar, mas não clicou em adicionar. Clique em adicionar ou deixe o campo vazio')
     }
 
+    if(links.length === 0){
+      return alert('Adicione pelo menos um link.')
+    }
+
+    if(tags.length === 0){
+      return alert('Adicione pelo menos uma tag.')
+    }
+
 
     await api.post('/notes', {
       title,
@@ -61,7 +75,7 @@ export function New(){
     });
 
     alert('Nota cadastrada com sucesso!')
-    navigate("/")
+    navigate(-1)
   }
 
   return(
@@ -72,9 +86,10 @@ export function New(){
         <Form>
           <header>
             <h1>Criar notas</h1>
-            <Link to="/" href="/">
-              Voltar
-            </Link>
+            <ButtonText 
+              title="voltar"
+              onClick={handleBack}
+            />
           </header>
 
           <Input 
