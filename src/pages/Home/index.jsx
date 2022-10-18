@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { FiPlus, FiSearch } from "react-icons/fi";
 
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import {Container, Brand, Menu, Search, Content, NewNote} from './styles';
 
@@ -22,6 +22,7 @@ export function Home(){
   const[search, setSearch] = useState("");
   const [notes, setNotes] = useState([]);
 
+  const navigate = useNavigate();
  
 
   function handleTagSelected(tagName) {
@@ -41,6 +42,10 @@ export function Home(){
       setTagsSelected(prevState => [...prevState, tagName]);
     }
 
+  }
+
+  function handleDetails(id){
+    navigate(`/details/${id}`);
   }
 
 
@@ -107,6 +112,7 @@ export function Home(){
               <Note 
                 data={note}
                 key={note.id}
+                onClick={() => handleDetails(note.id)}
               />
             ))
           }
