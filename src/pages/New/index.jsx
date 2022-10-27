@@ -7,7 +7,7 @@ import { api } from "../../services/api";
 import {Header} from "../../components/Header"
 import { Input } from "../../components/Input";
 import { TextArea } from "../../components/TextArea";
-import { Section } from "../../components/Section";
+import { Section } from "../../components/Sections";
 import { NoteItem } from "../../components/NoteItem";
 import { Button } from "../../components/Button";
 import {ButtonText } from "../../components/ButtonText"
